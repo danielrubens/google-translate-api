@@ -1,9 +1,8 @@
-import React from 'react';
-    
-const TextBox = () => {
+const TextBox = ({style}) => {
+    const options = {input: 'Enter Text', output: 'Translation'}
     return(
         <div>
-            {/* Content */}
+            <textarea placeholder={options[style]} />
         </div>
     );
 };
