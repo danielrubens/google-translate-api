@@ -9,7 +9,7 @@ describe('TextBox Component', () => {
     const input = screen.queryByPlaceholderText('Enter Text');
     const output = screen.queryByPlaceholderText('Translation');
     expect(input).toBeInTheDocument();
-    expect(output).not.toBeInTheDocument()
+    expect(output).not.toBeInTheDocument();
   });
 
   it('should render "Translation" on output placeholder', () => {
@@ -17,7 +17,7 @@ describe('TextBox Component', () => {
     const output = screen.queryByPlaceholderText('Translation');
     const input = screen.queryByPlaceholderText('Enter Text');
     expect(output).toBeInTheDocument();
-    expect(input).not.toBeInTheDocument()
+    expect(input).not.toBeInTheDocument();
   });
 
   it('should allow user to type on textarea input', () => {
