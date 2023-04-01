@@ -12,15 +12,15 @@ const componentDir = path.join(__dirname, 'src', 'components')
 components.forEach((component) => {
     const rafce = `import React from 'react';
     
-    const ${component} = () => {
-        return(
-            <div>
-                {/* Content */}}
-            </div>
-        );
-    };
+const ${component} = () => {
+    return(
+        <div>
+            {/* Content */}
+        </div>
+    );
+};
     
-    export default ${component};`
+export default ${component};`
     
     const filePath = path.join(componentDir, `${component}.js`)
     fs.writeFileSync(filePath, rafce);
