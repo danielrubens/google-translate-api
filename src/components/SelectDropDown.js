@@ -2,7 +2,7 @@ import React from 'react';
     
 const SelectDropDown = () => {
     return(
-        <div>
+        <div data-testid="select-drop-down">
             SelectDropDown
         </div>
     );

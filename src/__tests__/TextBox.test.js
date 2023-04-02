@@ -36,4 +36,9 @@ describe('TextBox Component', () => {
     const output = screen.getByPlaceholderText('Translation');
     expect(output).toBeDisabled();
   });
+  test('renders SelectDropDown component inside TextBox component', () => {
+    render(<TextBox />);
+    const SelectDropDown = screen.getByTestId('select-drop-down');
+    expect(SelectDropDown).toBeInTheDocument();
+  });
 });
