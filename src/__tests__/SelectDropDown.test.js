@@ -1,19 +1,12 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import configureMockStore from 'redux-mock-store'
+import { screen } from '@testing-library/react';
 import SelectDropDown from '../components/SelectDropDown';
+import RenderStore from './utils';
 
-const mockStore = configureMockStore()
 
 describe('SelectDropDown component', () => {
   it('renders input and down arrow', () => {
-    const store = mockStore({user: {input: 'English', output: 'Portuguese'}})
-    render(
-      <Provider store={store}>
-        <SelectDropDown />
-      </Provider>
-    );
+    RenderStore(<SelectDropDown/>)
     const component = screen.getByTestId('select-drop-down');
     const input = screen.getByRole('textbox');
     const arrow = screen.getByTestId('svg-drop-down');
