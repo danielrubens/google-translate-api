@@ -1,6 +1,6 @@
 import SelectDropDown from './SelectDropDown'
 
-const TextBox = ({style, language}) => {
+const TextBox = ({style}) => {
     const options = {input: 'Enter Text', output: 'Translation'}
     const enabled = options[style] === 'Enter Text' 
     return(
