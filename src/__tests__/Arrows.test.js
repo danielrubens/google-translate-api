@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, render, configure } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import Arrows from '../components/Arrows';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store'
