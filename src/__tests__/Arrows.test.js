@@ -2,7 +2,7 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import Arrows from '../components/Arrows';
 import App from '../App';
-import RenderStore from './utils';
+import RenderStore from '../utils/utils';
 
 
 describe('Arrows component', () => {
