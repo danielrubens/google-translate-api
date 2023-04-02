@@ -15,7 +15,7 @@ components.forEach((component) => {
 const ${component} = () => {
     return(
         <div>
-            {/* Content */}
+            ${component}
         </div>
     );
 };
