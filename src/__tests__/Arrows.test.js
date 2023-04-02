@@ -1,20 +1,10 @@
 import React from 'react';
-import { screen, render } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import Arrows from '../components/Arrows';
-import { Provider } from 'react-redux';
-import configureMockStore from 'redux-mock-store'
 import App from '../App';
+import RenderStore from './utils';
 
-const mockStore = configureMockStore()
-const RenderStore = (component) => {
-  render(
-  <Provider store={store}>
-    ${component}
-  </Provider>
-);
-  }
 
-const store = mockStore({user: {input: 'English', output: 'Portuguese'}})
 describe('Arrows component', () => {
   it('renders the SVG arrows', () => {
     RenderStore(<Arrows />)
