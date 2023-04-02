@@ -26,17 +26,20 @@ describe('TextBox Component', () => {
     userEvent.type(input, 'Hello, World!');
     expect(input).toHaveValue('Hello, World!');
   });
+
   it('ensures textarea is enabled for input and disabled for output"', () => {
     render(<TextBox style="input" />);
     const input = screen.getByPlaceholderText('Enter Text');
     expect(input).toBeEnabled();
   });
+
   it('ensures textarea is disabled for output"', () => {
     render(<TextBox style="output" />);
     const output = screen.getByPlaceholderText('Translation');
     expect(output).toBeDisabled();
   });
-  test('renders SelectDropDown component inside TextBox component', () => {
+
+  it('renders SelectDropDown component inside TextBox component', () => {
     render(<TextBox />);
     const SelectDropDown = screen.getByTestId('select-drop-down');
     expect(SelectDropDown).toBeInTheDocument();
