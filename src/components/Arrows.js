@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 const Arrows = () => {
-    const [input, setInput] = useState('English');
-    const [output, setOutput] = useState('Portuguese');
+    const [input, setInput] = useState('Portuguese');
+    const [output, setOutput] = useState('English');
     
     const dispatch = useDispatch()
     const handleClick = () => {
