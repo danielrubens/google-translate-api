@@ -4,7 +4,7 @@ const TextBox = ({style, language}) => {
     const options = {input: 'Enter Text', output: 'Translation'}
     const enabled = options[style] === 'Enter Text' 
     return(
-        <div className={style}>
+        <div className={style}>.
             <SelectDropDown />
             <textarea 
                 placeholder={options[style]}
