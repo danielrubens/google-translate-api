@@ -7,7 +7,6 @@ const Arrows = () => {
     
     const dispatch = useDispatch()
     const handleClick = () => {
-      console.log('chegou aqui')
       setInput(output);
       setOutput(input);
       dispatch({type: 'LANGUAGE', payload: {input, output}})

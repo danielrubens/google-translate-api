@@ -5,7 +5,7 @@ const INITIAL_STATE = {input: 'English', output: 'Portuguese'}
 const user = (state=INITIAL_STATE, action) => {
     switch(action.type){
         case LANGUAGE:
-            return {input: action.input, output: action.output}
+            return {input: action.payload.input, output: action.payload.output}
         default:
             return state
     }
