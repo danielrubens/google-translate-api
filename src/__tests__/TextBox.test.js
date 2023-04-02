@@ -31,7 +31,7 @@ describe('TextBox Component', () => {
     const input = screen.getByPlaceholderText('Enter Text');
     expect(input).toBeEnabled();
   });
-  it('ensures textarea disabled for output"', () => {
+  it('ensures textarea is disabled for output"', () => {
     render(<TextBox style="output" />);
     const output = screen.getByPlaceholderText('Translation');
     expect(output).toBeDisabled();
