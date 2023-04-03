@@ -21,7 +21,7 @@ const detectLanguage = async (text) => {
     }
 }
 
-// detectLanguage('Hoy es lunes')
+// detectLanguage('Hoje é segunda-feira')
 //     .then((res) => {
 //         console.log(res);
 //     })
@@ -40,10 +40,12 @@ const translateText = async (text, targetLanguage) => {
     }
 };
 
-translateText('Hoje é segunda-feira', 'es')
+translateText('Hoje é segunda-feira', 'en')
     .then((res) => {
         console.log(res);
     })
     .catch((err) => {
         console.log(err);
     });
+
+
