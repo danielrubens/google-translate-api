@@ -8,6 +8,7 @@ const App = () => {
       <TextBox style='input'/>
         <Arrows />
       <TextBox style='output'/>
+      <Modal/>
     </div>
   );
 }
