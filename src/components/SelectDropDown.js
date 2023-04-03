@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-const SelectDropDown = ({style}) => {
+const SelectDropDown = ({style, setShowModal}) => {
     const language = useSelector(state => state.user[style])
     return(
-        <div className="select-drop-down" data-testid="select-drop-down">
+        <div className="select-drop-down" onClick={()=> setShowModal(style)}data-testid="select-drop-down">
             <input value={language} data-testid={`input-drop-down-${style}`}/>
             <div className="down-arrow">
                 <svg focusable="false" xmlns="http://www.wr.org/2000/svg" viewBox="0 0 24 25">
