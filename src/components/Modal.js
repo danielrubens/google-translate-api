@@ -1,12 +1,15 @@
 import { useState } from 'react';
-    
+import { useDispatch } from 'react-redux';
+
 const Modal = () => {
     const [language, setLanguage] = useState('')
+    const dispatch = useDispatch()
+    const handleDispatch = () => { dispatch({type: 'MODAL', payload: null}) }
     return(
         <div className="option-list">
             <div className="search-bar">
                 <input value={language} onChange={({target}) => setLanguage(target.value)}/>
-                <div className="close-button" onClick={() => {}}>
+                <div className="close-button" onClick={handleDispatch}>
                     <svg focusable="false"
                          xmlns="http://www.w3.org/2000/svg"
                          viewBox="0 0 24 24"   
