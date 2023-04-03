@@ -2,7 +2,7 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TextBox from '../components/TextBox';
-import RenderStore from '../utils/utils';
+import RenderStore from '../utils';
 
 
 describe('TextBox Component', () => {

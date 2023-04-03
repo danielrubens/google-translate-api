@@ -1,8 +1,7 @@
-import React from 'react';
 import { screen } from '@testing-library/react';
-import Arrows from '../components/Arrows';
 import App from '../App';
-import RenderStore from '../utils/utils';
+import RenderStore from '../utils';
+import Arrows from '../components/Arrows';
 
 
 describe('Arrows component', () => {
@@ -19,5 +18,5 @@ describe('Arrows component', () => {
     RenderStore(<App />)
     const arrowsComponent = screen.getByTestId('arrows');
     expect(arrowsComponent).toBeInTheDocument();
-  });
+  }); 
 });

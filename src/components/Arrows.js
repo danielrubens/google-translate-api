@@ -13,7 +13,7 @@ const Arrows = () => {
     };
 
     return(
-        <div className="arrow-container"  onClick={handleClick}>
+        <div className="arrow-container"  onClick={handleClick} data-testid="arrow-container">
             <svg
                 data-testid="arrows"
                 focusable="false"

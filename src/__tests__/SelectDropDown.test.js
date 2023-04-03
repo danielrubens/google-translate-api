@@ -1,7 +1,6 @@
-import React from 'react';
 import { screen } from '@testing-library/react';
 import SelectDropDown from '../components/SelectDropDown';
-import RenderStore from '../utils/utils';
+import RenderStore from '../utils';
 
 
 describe('SelectDropDown component', () => {
