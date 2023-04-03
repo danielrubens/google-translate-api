@@ -9,7 +9,7 @@ const Modal = () => {
         <div className="option-list">
             <div className="search-bar">
                 <input value={language} onChange={({target}) => setLanguage(target.value)}/>
-                <div className="close-button" onClick={handleDispatch}>
+                <div className="close-button" data-testid="close-button" onClick={handleDispatch}>
                     <svg focusable="false"
                          xmlns="http://www.w3.org/2000/svg"
                          viewBox="0 0 24 24"   
