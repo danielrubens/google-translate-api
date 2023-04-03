@@ -3,7 +3,7 @@ import configureMockStore from 'redux-mock-store'
 import { render } from '@testing-library/react';
 
 const mockStore = configureMockStore()
-const store = mockStore({user: {input: 'English', output: 'Portuguese'}})
+const store = mockStore({user: {input: 'English', output: 'Portuguese', modal: false}})
 
 const RenderStore = (component) => {
   render(
