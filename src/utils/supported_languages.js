@@ -1,25 +1,14 @@
 const {TranslationServiceClient} = require('@google-cloud/translate').v3beta1;
-// const {TranslationServiceClient}  = require('@google-cloud/translate')
 require('dotenv').config();
 
 const CREDENTIALS = JSON.parse(process.env.CREDENTIALS)
 
-async function listSupportedLanguages() {
+const listSupportedLanguages = async() => {
     const client = new TranslationServiceClient();
-  
-    const [response] = await client.getSupportedLanguages({
-        parent: `projects/${CREDENTIALS.project_id}/locations/global`
-
-    });
-  
-    const languages = response.languages.map(language => {
-      return {
-        code: language.languageCode,
-        name: language.displayName,
-      };
-    });
-  
-    console.log(languages);
+    const parent = `projects/${CREDENTIALS.project_id}/locations/global`
+    const [response] = await client.getSupportedLanguages({ parent });
+    const languages = response.languages.map(({languageCode})=> ({ code: languageCode}))
+    return languages;
   }
   
-  listSupportedLanguages();
+listSupportedLanguages().then((data) => console.log(data))
