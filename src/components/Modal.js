@@ -33,7 +33,7 @@ const Modal = () => {
     // }
 
     useEffect(() => {getLanguages().then((response) => setLanguages(response))}, [])
-    console.log(languages)
+    languages.forEach((i) => console.log(i.language))
 
     return(
         <div className="option-list">
@@ -50,7 +50,7 @@ const Modal = () => {
             </div>
             <div className="options-container">
                 {/* <ul>{languages?.map((i) => (<p>{i}</p>))}</ul> */}
-                {/* {languages.length > 0 && languages.map((i) => (<p>{i}</p>))} */}
+                {languages.length > 0 && languages.map((i) => (<p>{i.language}</p>))}
             </div>
         </div>
     );
