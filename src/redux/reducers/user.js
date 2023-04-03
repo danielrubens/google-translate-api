@@ -1,11 +1,13 @@
-import { LANGUAGE } from "../actions";
+import { LANGUAGE, MODAL } from "../actions";
 
-const INITIAL_STATE = {input: 'English', output: 'Portuguese'}
+const INITIAL_STATE = {input: 'English', output: 'Portuguese', modal: false}
 
 const user = (state=INITIAL_STATE, action) => {
     switch(action.type){
         case LANGUAGE:
-            return {input: action.payload.input, output: action.payload.output}
+            return {...state, input: action.payload.input, output: action.payload.output}
+        case MODAL:
+            return {...state, modal: action.payload}
         default:
             return state
     }
