@@ -1,16 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { getLanguages } from '../api';
 
 const Arrows = () => {
     const user = useSelector(state => state.user)
     const [input, setInput] = useState(user.input);
     const [output, setOutput] = useState(user.output);
+    const [languages, setLanguages] = useState([])
+
+    useEffect(() => {getLanguages().then((response) => setLanguages(response.data))}, [])
     
     const dispatch = useDispatch()
     const handleClick = () => {
       setInput(output);
       setOutput(input);
       dispatch({type: 'LANGUAGE', payload: {input, output}})
+      const { code } = languages.find((i) => i.language === output)
+      dispatch({type: 'CODE', payload: code})
     };
 
     return(

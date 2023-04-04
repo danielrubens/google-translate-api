@@ -16,7 +16,8 @@ const Modal = () => {
     useEffect(() => {getLanguages().then((response) => setLanguages(response.data))}, [])
 
     const handleClick = (target) => {
-        console.log(target.innerText)
+        const { code } = languages.find((i) => i.language === target.innerText)
+        dispatch({type: 'CODE', payload: code})
         dispatch({type: 'CHANGE', payload: {modal, value: target.innerText}})
         handleDispatch()
     }

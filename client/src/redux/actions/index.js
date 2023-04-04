@@ -2,6 +2,7 @@ export const LANGUAGE = 'LANGUAGE';
 export const MODAL = 'MODAL';
 export const CHANGE = 'CHANGE';
 export const SEARCH = 'SEARCH';
+export const CODE = 'CODE';
 
 
 export const languageAction = (payload) => ({
@@ -21,5 +22,10 @@ export const changeLanguage = (payload) => ({
 
 export const searchLanguage = (payload) => ({
     type: SEARCH,
+    payload
+})
+
+export const getCode = (payload) => ({
+    type: CODE,
     payload
 })
