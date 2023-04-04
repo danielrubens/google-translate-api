@@ -11,6 +11,11 @@ const Modal = () => {
 
     useEffect(() => {getLanguages().then((response) => setLanguages(response.data))}, [])
 
+    const handleClick = (e) => {
+        // setLanguage(e.target.value)
+        handleDispatch()
+    }
+
     return(
         <div className="option-list">
             <div className="search-bar">
@@ -26,7 +31,23 @@ const Modal = () => {
             </div>
             <div className="options-container">
                 {/* <ul>{languages?.map((i) => (<p>{i}</p>))}</ul> */}
-                {languages.length > 0 && languages.map((i) => (<p>{i.language}</p>))}
+                <ul>
+                    {languages.length > 0 && languages.map((i, index) => (
+                    <div className="list-item">
+                        <div className="icon">
+                            {language === i ? '✓' : ''}
+                        </div>
+                        <li
+                            key={index}
+                            onClick={handleClick}
+                        >
+                         {i.language}
+                        </li>
+                    </div>
+                    // <p>{i.language}</p>
+                    ))}
+
+                </ul>
             </div>
         </div>
     );

@@ -41,11 +41,9 @@ const supportedLanguages = async() => {
     const parent = `projects/${CREDENTIALS.project_id}/locations/global`
     const [response] = await client.getSupportedLanguages({ parent });
     const languages = response.languages.map(({languageCode})=> (
-      { code: languageCode, name: iso.getName(languageCode)}))
+      { code: languageCode, language: iso.getName(languageCode)}))
     return languages;
   }
-
-// supportedLanguages().then((data) => console.log(data))
 
 
 module.exports = {translateText, detectLanguage, supportedLanguages}

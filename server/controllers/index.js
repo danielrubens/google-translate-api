@@ -13,7 +13,7 @@ const translate = async(req, res) => {
 
 const getLanguages = async(req, res) => {
     const languages = await service.supportedLanguages()
-    const notEmpty = languages.filter((i) => i.name !== '')
+    const notEmpty = languages.filter((i) => i.language !== '')
     return res.status(200).json(notEmpty)
 }
 
