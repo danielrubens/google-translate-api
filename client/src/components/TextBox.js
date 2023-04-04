@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 const TextBox = ({style}) => {
     const options = {input: 'Enter Text', output: 'Translation'}
     const enabled = options[style] === 'Enter Text'
+    const initialMessage = useSelector(state => state.user.translation.input)
+
     const [outputMessage, setOutputMessage] = useState('')
 
     const dispatch = useDispatch()
@@ -13,11 +15,16 @@ const TextBox = ({style}) => {
     const code = useSelector(state => state.user.code)
     const translation = useSelector(state => state.user.translation)
     
-    useEffect(() => {}, [translation.output])
+    useEffect(() => {
+        const body = {message: initialMessage, language: code}
+        console.log(body)
+        translate(body).then((data) => setOutputMessage(data.data))
+        dispatch({type: 'TRANSLATE', payload: {input: initialMessage, output: outputMessage}})
+    }, [translation.output, code, outputMessage]
+    )
     const handleChange = (value) => {
         const body = {message: value, language: code}
         translate(body).then((data) => setOutputMessage(data.data))
-        console.log(translation)
         dispatch({type: 'TRANSLATE', payload: {input: value, output: outputMessage}})
     }
 

@@ -1,5 +1,5 @@
 /* eslint-disable react/style-prop-object */
-import { Arrows, TextBox, Button, Modal } from "./components";
+import { Arrows, TextBox, Modal } from "./components";
 import { useSelector } from "react-redux";
 
 
