@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-// import getLanguages from '../utils/getLanguages';
+import { useDispatch, useSelector } from 'react-redux';
 import { getLanguages } from '../api';
 
 const Modal = () => {
     const [language, setLanguage] = useState('')
     const [languages, setLanguages] = useState([])
     const dispatch = useDispatch()
+    const modal = useSelector(state => state.user.modal)
+
     const handleDispatch = () => { dispatch({type: 'MODAL', payload: null}) }
 
     useEffect(() => {getLanguages().then((response) => setLanguages(response.data))}, [])
 
-    const handleClick = (e) => {
-        // setLanguage(e.target.value)
+    const handleClick = (target) => {
+        dispatch({type: 'CHANGE', payload: {modal, value: target.innerText}})
         handleDispatch()
     }
 
@@ -30,21 +31,19 @@ const Modal = () => {
                 </div>
             </div>
             <div className="options-container">
-                {/* <ul>{languages?.map((i) => (<p>{i}</p>))}</ul> */}
                 <ul>
                     {languages.length > 0 && languages.map((i, index) => (
-                    <div className="list-item">
-                        <div className="icon">
+                    <div key={`list-${index}`} className="list-item">
+                        <div key={`icon-${index}`} className="icon">
                             {language === i ? '✓' : ''}
                         </div>
                         <li
                             key={index}
-                            onClick={handleClick}
+                            onClick={({target}) => handleClick(target)}
                         >
                          {i.language}
                         </li>
                     </div>
-                    // <p>{i.language}</p>
                     ))}
 
                 </ul>

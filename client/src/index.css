@@ -126,3 +126,17 @@ textarea {
     list-style-type: none;
     border-radius: 4px;
 }
+
+.option-list li:hover{
+    background-color: #5a5a5d;
+}
+
+.list-item{
+    display: flex;   
+}
+
+.list-item .icon{
+    padding: 8px;
+    width: 11px;
+    color: #8ab4f8;
+}

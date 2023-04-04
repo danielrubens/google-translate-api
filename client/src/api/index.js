@@ -5,7 +5,6 @@ const API = axios.create({  baseURL: 'http://localhost:3004/' });
 const getLanguages = async () => {
   try {
     const response = await API.get('/');
-    console.log(response)
     return response;
   } catch (error) {
     return error.reponse;
