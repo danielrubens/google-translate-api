@@ -1,4 +1,6 @@
 const {Translate} = require('@google-cloud/translate').v2;
+const {TranslationServiceClient } = require('@google-cloud/translate');
+const iso = require('iso-639-1');
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -20,13 +22,6 @@ const detectLanguage = async (text) => {
     }
 }
 
-// detectLanguage('Hoje é segunda-feira')
-//     .then((res) => {
-//         console.log(res);
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     });
 
 const translateText = async (text, targetLanguage) => {
 
@@ -39,13 +34,19 @@ const translateText = async (text, targetLanguage) => {
     }
 };
 
-// translateText('Hoje é segunda-feira', 'en')
-//     .then((res) => {
-//         console.log(res);
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     });
 
-module.exports = {translateText, detectLanguage}
+require('dotenv').config();
+const supportedLanguages = async() => {
+    const client = new TranslationServiceClient();
+    const parent = `projects/${CREDENTIALS.project_id}/locations/global`
+    const [response] = await client.getSupportedLanguages({ parent });
+    const languages = response.languages.map(({languageCode})=> (
+      { code: languageCode, name: iso.getName(languageCode)}))
+    return languages;
+  }
+
+// supportedLanguages().then((data) => console.log(data))
+
+
+module.exports = {translateText, detectLanguage, supportedLanguages}
 

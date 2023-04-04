@@ -13,7 +13,8 @@ app.use(cors())
 const PORT = process.env.PORT
 // const route = express.Router()
 
-app.get('/', (_req, res) => { res.send()})
+// app.get('/', (_req, res) => { res.send()})
+app.get('/', controller.getLanguages)
 app.post('/translate', controller.translate)
 app.post('/detect', controller.detect)
 
