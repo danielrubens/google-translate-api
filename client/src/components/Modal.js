@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getLanguages } from '../api';
 
 const Modal = () => {
-    const [language, setLanguage] = useState('')
+    const user = useSelector(state => state.user)
+    const modal = useSelector(state => state.user.modal)
+
+    const [language, setLanguage] = useState(user[modal])
     const [languages, setLanguages] = useState([])
     const dispatch = useDispatch()
-    const modal = useSelector(state => state.user.modal)
-    const searched = useSelector(state => state.user.search)
+    // const searched = useSelector(state => state.user.search)
 
     const handleDispatch = () => { dispatch({type: 'MODAL', payload: null}) }
 
