@@ -1,6 +1,8 @@
 export const LANGUAGE = 'LANGUAGE';
 export const MODAL = 'MODAL';
 export const CHANGE = 'CHANGE';
+export const SEARCH = 'SEARCH';
+
 
 export const languageAction = (payload) => ({
     type: LANGUAGE,
@@ -14,5 +16,10 @@ export const modalAction = (payload) => ({
 
 export const changeLanguage = (payload) => ({
     type: CHANGE,
+    payload
+})
+
+export const searchLanguage = (payload) => ({
+    type: SEARCH,
     payload
 })

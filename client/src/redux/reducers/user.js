@@ -1,6 +1,6 @@
-import { LANGUAGE, MODAL, CHANGE } from "../actions";
+import { LANGUAGE, MODAL, CHANGE, SEARCH } from "../actions";
 
-const INITIAL_STATE = {input: 'English', output: 'Portuguese', modal: null}
+const INITIAL_STATE = {input: 'English', output: 'Portuguese', modal: null, search: ''}
 
 const user = (state=INITIAL_STATE, action) => {
     switch(action.type){
@@ -10,10 +10,9 @@ const user = (state=INITIAL_STATE, action) => {
             return {...state, modal: action.payload}
         case CHANGE: 
             const dynamicKey = action.payload.modal
-            console.log(action.payload)
-            // console.log(dynamicKey)
-            // console.log(action.payload.value)
             return {...state, [dynamicKey]: action.payload.value}
+        case SEARCH:
+            return {...state, search: action.payload}
         default:
             return state
     }
