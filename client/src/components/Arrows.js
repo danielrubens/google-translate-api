@@ -4,6 +4,7 @@ import { getLanguages } from '../api';
 
 const Arrows = () => {
     const user = useSelector(state => state.user)
+    const translation = useSelector(state => state.user.translation)
     const [input, setInput] = useState(user.input);
     const [output, setOutput] = useState(user.output);
     const [languages, setLanguages] = useState([])
@@ -16,6 +17,7 @@ const Arrows = () => {
       setOutput(input);
       dispatch({type: 'LANGUAGE', payload: {input, output}})
       const { code } = await languages?.find((i) => i.language === output)
+      dispatch({type: 'TRANSLATE', payload: {input: translation.output, output: translation.input}})
       dispatch({type: 'CODE', payload: code})
     };
 
