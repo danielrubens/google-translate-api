@@ -11,11 +11,11 @@ const Arrows = () => {
     useEffect(() => {getLanguages().then((response) => setLanguages(response.data))}, [])
     
     const dispatch = useDispatch()
-    const handleClick = () => {
+    const handleClick = async () => {
       setInput(output);
       setOutput(input);
       dispatch({type: 'LANGUAGE', payload: {input, output}})
-      const { code } = languages?.find((i) => i.language === output)
+      const { code } = await languages?.find((i) => i.language === output)
       dispatch({type: 'CODE', payload: code})
     };
 
