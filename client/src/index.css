@@ -118,3 +118,11 @@ textarea {
     flex-direction: column;
     flex-wrap: wrap;
 }
+
+.option-list li{
+    color: #bdc1c6;
+    font-size: 14px;
+    padding: 8px;
+    list-style-type: none;
+    border-radius: 4px;
+}
