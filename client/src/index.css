@@ -77,3 +77,44 @@ textarea {
     height: 42px;
     fill: #5a5a5d;
 }
+
+.option-list{
+    width: 100%;
+}
+
+.search-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.search-bar input{
+    background: url(https://www.gstatic.com/images/icons/material/system/2x/search_grey600_24dp.png) right 8px center no-repeat;
+    background-size: 24px 24px;
+    padding-left: 16px;
+    padding-right: 40px;
+    width: 90% !important;
+    outline: none;
+}
+
+.search-bar .close-button svg{
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    fill: #5a5a5d;
+}
+
+.option-container{
+    height: 250px;
+    overflow: auto;
+}
+
+.option-list ul{
+    margin: 15px;
+    padding: 0;
+    height: 1300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
