@@ -22,17 +22,10 @@ const Modal = () => {
         handleDispatch()
     }
 
-    const handleLanguages = (value) => {
-        setLanguage(value)
-        // dispatch({type: 'SEARCH', payload: value})
-        // const filteredLanguages = languages.filter((i) => i.language.includes(searched))
-        // setLanguages(filteredLanguages)
-    }
-
     return(
         <div className="option-list">
             <div className="search-bar">
-                <input value={language} onChange={({target}) => handleLanguages(target.value)}/>
+                <input value={language} onChange={({target}) => setLanguage(target.value)}/>
                 <div className="close-button" data-testid="close-button" onClick={handleDispatch}>
                     <svg focusable="false"
                          xmlns="http://www.w3.org/2000/svg"
