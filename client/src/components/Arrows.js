@@ -15,7 +15,7 @@ const Arrows = () => {
       setInput(output);
       setOutput(input);
       dispatch({type: 'LANGUAGE', payload: {input, output}})
-      const { code } = languages.find((i) => i.language === output)
+      const { code } = languages?.find((i) => i.language === output)
       dispatch({type: 'CODE', payload: code})
     };
 

@@ -35,7 +35,6 @@ const translateText = async (text, targetLanguage) => {
 };
 
 
-require('dotenv').config();
 const supportedLanguages = async() => {
     const client = new TranslationServiceClient();
     const parent = `projects/${CREDENTIALS.project_id}/locations/global`
