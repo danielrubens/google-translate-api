@@ -1,6 +1,6 @@
 import { LANGUAGE, MODAL, CHANGE, SEARCH, CODE } from "../actions";
 
-const INITIAL_STATE = {input: 'English', output: 'Portuguese', modal: null, search: '', code: 'en'}
+const INITIAL_STATE = {input: 'English', output: 'Portuguese', modal: null, search: '', code: 'pt'}
 
 const user = (state=INITIAL_STATE, action) => {
     switch(action.type){

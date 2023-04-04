@@ -1,13 +1,23 @@
 import SelectDropDown from './SelectDropDown'
+import { translate } from '../api';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const TextBox = ({style}) => {
     const options = {input: 'Enter Text', output: 'Translation'}
-    const enabled = options[style] === 'Enter Text' 
+    const enabled = options[style] === 'Enter Text'
 
-    const handleChange = (value) => {
-        if(style === 'input'){
-            console.log('chegou aqui')
-        }
+    const [inputMessage, setInputMessage] = useState('')
+    const [outputMessage, setOutputMessage] = useState('')
+
+    const code = useSelector(state => state.user.code)
+
+    const handleChange = async (value) => {
+        setInputMessage(value)
+        const body = {message: value, language: code}
+        const translated = await translate(body)
+        console.log(translated.data)
+        setOutputMessage(translated.data)
     }
     return(
         <div className={style} data-testid={`textbox-${style}`}>.
@@ -15,7 +25,8 @@ const TextBox = ({style}) => {
             <textarea 
                 placeholder={options[style]}
                 onChange={({target}) => handleChange(target.value)}
-                disabled={!enabled}
+                // disabled={!enabled}
+                value={style === 'input' ? inputMessage : outputMessage}
                 />
         </div>
     );
