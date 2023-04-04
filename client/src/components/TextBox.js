@@ -1,29 +1,26 @@
 import SelectDropDown from './SelectDropDown'
 import { translate } from '../api';
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 
 const TextBox = ({style}) => {
     const options = {input: 'Enter Text', output: 'Translation'}
     const enabled = options[style] === 'Enter Text'
-    
-    const [inputMessage, setInputMessage] = useState('')
     const [outputMessage, setOutputMessage] = useState('')
-    const [translation, setTranslation] = useState({input: '', output: ''})
+
+    const dispatch = useDispatch()
     
     const code = useSelector(state => state.user.code)
+    const translation = useSelector(state => state.user.translation)
     
+    useEffect(() => {}, [translation.output])
     const handleChange = (value) => {
-        setInputMessage(value)
         const body = {message: value, language: code}
-        // const translated = await translate(body)
-        translate(body).then((data) => setInputMessage(data.data))
-        console.log(inputMessage)
-        // setOutputMessage(translated.data)
-        // console.log(translated.data)
-        // setTranslation({input: value, output: translated})
+        translate(body).then((data) => setOutputMessage(data.data))
+        console.log(translation)
+        dispatch({type: 'TRANSLATE', payload: {input: value, output: outputMessage}})
     }
-    // const translation = {input: inputMessage, output: outputMessage}
+
 
     return(
         <div className={style} data-testid={`textbox-${style}`}>.
@@ -31,8 +28,8 @@ const TextBox = ({style}) => {
             <textarea 
                 placeholder={options[style]}
                 onChange={({target}) => handleChange(target.value)}
-                // disabled={!enabled}
-                // value={translation[style]}
+                disabled={!enabled}
+                value={translation[style]}
                 />
         </div>
     );

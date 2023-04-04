@@ -3,7 +3,7 @@ export const MODAL = 'MODAL';
 export const CHANGE = 'CHANGE';
 export const SEARCH = 'SEARCH';
 export const CODE = 'CODE';
-
+export const TRANSLATE = 'TRANSLATE';
 
 export const languageAction = (payload) => ({
     type: LANGUAGE,
@@ -27,5 +27,10 @@ export const searchLanguage = (payload) => ({
 
 export const getCode = (payload) => ({
     type: CODE,
+    payload
+})
+
+export const translate = (payload) => ({
+    type: TRANSLATE,
     payload
 })
