@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import getLanguages from '../utils/getLanguages';
-
+// import getLanguages from '../utils/getLanguages';
+import { getLanguages } from '../api';
 
 const Modal = () => {
     const [language, setLanguage] = useState('')
@@ -9,8 +9,7 @@ const Modal = () => {
     const dispatch = useDispatch()
     const handleDispatch = () => { dispatch({type: 'MODAL', payload: null}) }
 
-    useEffect(() => {getLanguages().then((response) => setLanguages(response))}, [])
-    languages.forEach((i) => console.log(i.language))
+    useEffect(() => {getLanguages().then((response) => setLanguages(response.data))}, [])
 
     return(
         <div className="option-list">
