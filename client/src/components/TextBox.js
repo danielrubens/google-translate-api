@@ -13,12 +13,14 @@ const TextBox = ({style}) => {
     
     const code = useSelector(state => state.user.code)
     
-    const handleChange = async (value) => {
+    const handleChange = (value) => {
         setInputMessage(value)
         const body = {message: value, language: code}
-        const translated = await translate(body)
+        // const translated = await translate(body)
+        translate(body).then((data) => setInputMessage(data.data))
+        console.log(inputMessage)
         // setOutputMessage(translated.data)
-        console.log(translated.data)
+        // console.log(translated.data)
         // setTranslation({input: value, output: translated})
     }
     // const translation = {input: inputMessage, output: outputMessage}
