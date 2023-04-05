@@ -11,18 +11,6 @@ const translate = new Translate({
     projectId: CREDENTIALS.project_id
 });
 
-const detectLanguage = async (text) => {
-
-    try {
-        let response = await translate.detect(text);
-        return response[0].language;
-    } catch (error) {
-        console.log(`Error at detectLanguage --> ${error}`);
-        return 0;
-    }
-}
-
-
 const translateText = async (text, targetLanguage) => {
 
     try {
@@ -45,5 +33,5 @@ const supportedLanguages = async() => {
   }
 
 
-module.exports = {translateText, detectLanguage, supportedLanguages}
+module.exports = {translateText, supportedLanguages}
 

@@ -17,7 +17,6 @@ const TextBox = ({style}) => {
     
     useEffect(() => {
         const body = {message: initialMessage, language: code}
-        console.log(body)
         translate(body).then((data) => setOutputMessage(data.data))
         dispatch({type: 'TRANSLATE', payload: {input: initialMessage, output: outputMessage}})
     }, [translation.output, code, outputMessage]
