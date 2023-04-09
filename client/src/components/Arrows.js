@@ -16,7 +16,8 @@ const Arrows = () => {
       setInput(output);
       setOutput(input);
       dispatch({type: 'LANGUAGE', payload: {input, output}})
-      const { code } = await languages?.find((i) => i.language === output)
+      const language = await languages?.find((i) => i.language === output)
+      const code = language?.code
       dispatch({type: 'TRANSLATE', payload: {input: translation.output, output: translation.input}})
       dispatch({type: 'CODE', payload: code})
     };
