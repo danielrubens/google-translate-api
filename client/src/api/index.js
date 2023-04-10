@@ -14,7 +14,6 @@ const getLanguages = async () => {
 
 const translate = async (body) => {
     // const {message, language} = req.body
-  setTimeout(() => {}, 1000)
   try {
     const response = await API.post('/translate', body);
     return response;
