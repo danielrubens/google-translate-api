@@ -1,7 +1,6 @@
 ## This project is a Translator App that receives input text from a user and translate it from/to the selected languages using public Google Translate API.
 
----
-
+<br>
 
 ## Overview of the App
 <details>
@@ -10,8 +9,7 @@
 ![Main Screen](./client/images/app-overview.png)
 
 </details>
-
----
+<br>
 
 # Features
 
