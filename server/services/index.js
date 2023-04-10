@@ -11,10 +11,9 @@ const translate = new Translate({
     projectId: CREDENTIALS.project_id
 });
 
-const translateText = async (text, targetLanguage) => {
-
+const translateText = async (text, code) => {
     try {
-        let [response] = await translate.translate(text, targetLanguage);
+        let [response] = await translate.translate(text, code);
         return response;
     } catch (error) {
         console.log(`Error at translateText --> ${error}`);
