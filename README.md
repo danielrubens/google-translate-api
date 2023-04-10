@@ -1,5 +1,18 @@
 ## This project is a Translator App that receives input text from a user and translate it from/to the selected languages using public Google Translate API.
 
+---
+
+
+## Overview of the App
+<details>
+  <summary><strong>Image of the Main Screen</strong></summary><br />
+
+![Main Screen](./client/images/app-overview.png)
+
+</details>
+
+---
+
 # Features
 
 <details>
@@ -59,8 +72,8 @@
 
 <details>
   <summary><strong>Simple and maintainable code</strong></summary><br />
-
-   ```js
+   
+  ```js
       import { useSelector } from "react-redux";
       import { Arrows, TextBox, Modal } from "./components";
 
