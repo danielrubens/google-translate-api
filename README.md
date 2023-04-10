@@ -1,5 +1,4 @@
 ## This project is a Translator App that receives input text from a user and translate it from/to the selected languages using public Google Translate API.
-<br>
 
 # Features
 
@@ -58,8 +57,6 @@
 </details>
 
 ---
-
-<br>
 
 # Install dependencies and run project
    ```bash
